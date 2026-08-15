@@ -1,0 +1,11 @@
+# sirovi HCP podaci (14 GB) i izvedeni nizovi - ne idu u repo
+data/
+
+
+# macOS na exFAT particiji pravi ._ sidecar fajlove
+._*
+.DS_Store
+
+__pycache__/
+.ipynb_checkpoints/
+literatura/

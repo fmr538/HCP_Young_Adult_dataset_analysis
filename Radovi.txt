@@ -1,0 +1,19 @@
+Hierarchical Multi-resolution Mesh Networks (HMMNs)
+
+fMRI signal (koji prati promene krvotoka u mozgu tokom vremena) se pomoću wavelet transformacije razbija na više "podopsega" (subbands) — slično kao kad audio signal razdvojite na base, srednje i visoke tonove. Svaki podopseg nosi informaciju o promenama moždane aktivnosti na različitoj vremenskoj skali (brze vs. spore promene).
+
+Umesto da se gleda samo jačina aktivnosti jednog voksela, gleda se kako su vokseli međusobno povezani tokom vremena
+To se radi računanjem korelacije između signala iz različitih parova voksela (ili regiona) — ako dva regiona "rade sinhronizovano" tokom vremena (kada raste aktivnost u jednom, raste i u drugom), smatra se da su funkcionalno povezani
+Ovim se gradi brain network (moždana mreža) — graf gde su čvorovi moždani regioni, a veze predstavljaju njihovu funkcionalnu povezanost
+
+Za svaku rezoluciju (frekvencijski podopseg iz wavelet dekompozicije) postoji posebna moždana mreža
+Za svaku od tih mreža trenira se poseban klasifikator — konkretno, logistička regresija
+To znači: ako imamo, recimo, 4 frekvencijska podopsega, dobijamo 4 nezavisna klasifikatora, svaki "specijalista" za svoj nivo rezolucije
+
+
+Ovo govori: da bi se dobio jedan reprezentativni signal za ceo anatomski region (r), radi se sledeće:
+
+Uzmu se svi vokseli koji fizički pripadaju tom regionu (npr. region "hipokampus")
+Za svaki trenutak vremena t, saberu se vrednosti signala svih tih voksela
+Ta suma se podeli sa brojem voksela u regionu (Vᵣ) — to je prosto prosek (srednja vrednost)
+X_r​(t)=1/V_r​​*∑​X_v​(t) za svako v u r
