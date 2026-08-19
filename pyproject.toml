@@ -3,6 +3,7 @@ name = "hcp-young-adult-dataset-analysis"
 version = "0.1.0"
 requires-python = ">=3.14"
 dependencies = [
+    "emd-signal>=1.10.0",
     "matplotlib>=3.11.1",
     "nibabel>=5.4.2",
     "nilearn>=0.14.0",
@@ -15,5 +16,4 @@ dependencies = [
 [dependency-groups]
 dev = [
     "ipykernel>=7.3.0",
-    "nbstripout>=0.9.1",
 ]

@@ -9,3 +9,7 @@ data/
 __pycache__/
 .ipynb_checkpoints/
 literatura/
+Radovi.txt/
+# generator izveštaja i izvezene slike - nastaju pokretanjem, ne idu u repo
+alati/
+figure/
